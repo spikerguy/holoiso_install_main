@@ -29,13 +29,8 @@ jobs:
           su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso-beta/os/x86_64/holoiso-beta.files -P pkgout"
           su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso-beta/os/x86_64/holoiso-beta.files.tar.gz -P pkgout"
           su -s /bin/bash nobody -c "repo-add pkgout/holoiso-beta.db.tar.gz pkgout/*.tar.zst"
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: repository
-          path: pkgout/holoiso-beta*
           
       - uses: actions/upload-artifact@v2
         with:
           name: package
-          path: pkgout/holoiso-main*
+          path: pkgout/*
