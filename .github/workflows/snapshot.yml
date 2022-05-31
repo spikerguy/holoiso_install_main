@@ -24,9 +24,20 @@ jobs:
           
       - name: Add to arch repository
         run: |
+          su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso/os/x86_64/gamescope-3.11.31.holoiso20220526.1235-2-x86_64.pkg.tar.zst -P pkgout"
+          su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso/os/x86_64/holoiso-updateclient-rel.20220530.1913-1-x86_64.pkg.tar.zst -P pkgout"
+          su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso/os/x86_64/nvidia-dkms-515.43.04-1-x86_64.pkg.tar.zst -P pkgout"
+          su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso/os/x86_64/nvidia-utils-515.43.04-1-x86_64.pkg.tar.zst -P pkgout"
+          su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso/os/x86_64/opencl-nvidia-515.43.04-1-x86_64.pkg.tar.zst -P pkgout"
+          su -s /bin/bash nobody -c "wget https://vakdl.enablers.workers.dev/6:/holoiso/os/x86_64/scuffedfetch-20220530.1123-1-x86_64.pkg.tar.zst -P pkgout"
           su -s /bin/bash nobody -c "repo-add pkgout/holoiso-beta.db.tar.gz pkgout/*.tar.zst"
 
       - uses: actions/upload-artifact@v2
         with:
+          name: repository
+          path: pkgout/holoiso-beta*
+          
+      - uses: actions/upload-artifact@v2
+        with:
           name: package
-          path: pkgout/*
+          path: pkgout/holoiso-updateclient*
