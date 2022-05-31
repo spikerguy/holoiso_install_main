@@ -29,6 +29,7 @@ package() {
     sed -i "s/versionver/${holoiso_codename}/g" osinfo_tmp
     sed -i "s/buildver/${holoiso_basever}/g" osinfo_tmp
     cp "${srcdir}/osinfo_tmp" "${pkgdir}/etc/os-release"
+    cp "${srcdir}/holoiso-branch" "${pkgdir}/etc/holoiso-branch"
     rm "${srcdir}/osinfo_tmp"
     chmod +x "${pkgdir}/usr/bin/steamos-session-select"
     chmod +x "${pkgdir}/usr/bin/jupiter-controller-update"   
