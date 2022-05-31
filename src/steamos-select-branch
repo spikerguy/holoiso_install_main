@@ -10,7 +10,7 @@ selectbeta() {
     echo "Switching to branch beta...."
     sudo pkexec sed -i 's/rel/beta/g' /etc/holoiso-branch
     sudo mv /etc/pacman.conf /etc/stable_pacman.conf
-    sudo mv /etc/beta_pacman.conf
+    sudo mv /etc/beta_pacman.conf /etc/pacman.conf
     echo "Switched to branch beta!"
   else
     echo "Unknown branch ${BRANCH_LOCAL}."
@@ -23,10 +23,10 @@ selectstable() {
     echo "Switching to branch release...."
     sudo pkexec sed -i 's/beta/rel/g' /etc/holoiso-branch
     sudo mv /etc/pacman.conf /etc/beta_pacman.conf
-    sudo mv /etc/stable_pacman.conf
-    echo "Switched to branch stable!"
+    sudo mv /etc/stable_pacman.conf /etc/pacman.conf
+    echo "Switched to branch release!"
   else
-    echo "Unknown branch ${BRANCH_LOCAL}."
+    echo "Unknown branch ${BRANCH_LOCAL}. Try again later."
   fi
 
 if [[ "$#" = 1 ]]; then
