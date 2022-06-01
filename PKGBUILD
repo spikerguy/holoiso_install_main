@@ -6,7 +6,7 @@ depends=('archlinux-keyring' 'ark' 'cheese' 'chromium' 'cups' 'curl' 'dolphin' '
 arch=("x86_64")
 
 package() {
-    holoiso_codename="Beta R2"
+    holoiso_codename="Beta R3"
     mkdir -p "${pkgdir}/usr/bin"
     mkdir -p "${pkgdir}/etc"
     mkdir -p "${pkgdir}/etc/udev"    
