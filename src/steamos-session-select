@@ -14,7 +14,7 @@ switchtogamescope() {
            
 switchtodesktop() {
         sudo pkexec sed -i "s/${DESKTOP_SESSION}/plasma/g" /etc/sddm.conf.d/autologin.conf
-        sudo systemctl reset-failed sddm && touch /tmp/steamos-sessionselect-sentinel && sudo systemctl restart sddm
+        sudo pkill -f "gamescope*" && sudo systemctl reset-failed sddm && touch /tmp/steamos-sessionselect-sentinel && sudo systemctl restart sddm
 }
 
 persistentdesktop() {
